@@ -1,0 +1,2 @@
+sku,slug,title,price,stock,age,category,recommended,published,short_description,description,recommendation
+KTVT-001,ejemplo-libro,Libro de ejemplo,299.00,10,3–5 años,Álbum ilustrado,true,false,Descripción breve,Descripción larga del libro,Por qué KTVT recomienda este libro
