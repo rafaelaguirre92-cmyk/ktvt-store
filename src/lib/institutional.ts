@@ -1,201 +1,191 @@
 export const homeHero = {
-  title: "Libros infantiles que tus hijos sí van a querer leer",
+  title: "Libros infantiles para leer, reír y volver a abrir",
   description:
-    "Seleccionamos cada título pensando en mamás como tú: historias para leer juntos, sin perderte horas buscando ni pelear por abrir un libro.",
+    "Encuentra historias para su edad y sobre los temas que más les interesan. Menos tiempo buscando, más momentos para leer juntos.",
 };
 
 export const homeSeo = {
-  title: "Libros Infantiles",
+  title: "Libros infantiles por edad | Historias para compartir",
   description:
-    "Libros infantiles seleccionados con cuidado para tus hijos. Recomendaciones por edad, orientación por WhatsApp y talleres en familia.",
+    "Encuentra libros infantiles que vayan con su edad y con lo que hoy les gusta. Elige más fácil y pide una recomendación para leer en familia.",
+  openGraphTitle: "Historias para leer, reír y volver a abrir",
+  openGraphDescription:
+    "Encuentra libros que vayan con su edad, sus intereses y la forma en que disfrutan leer.",
+  canonical: "https://www.ktvt.mx/",
 };
-
-export const intro =
-  "Libros infantiles, orientación cuando no sabes cuál elegir y talleres para que leer en casa se sienta natural.";
-
-export const mission = {
-  title: "Lo que hacemos",
-  statement: "Ayudarte a que tus hijos conecten con la lectura, sin que se vuelva una lucha.",
-  detail:
-    "Elegimos cada libro uno por uno y te orientamos cuando dudas. Sin catálogos infinitos ni presión de 'tener que leer más'.",
-};
-
-export const vision = {
-  title: "Lo que soñamos",
-  statement: "Que los libros formen parte del día a día en casa.",
-  detail:
-    "Conversaciones en la cena, risas antes de dormir, preguntas raras y ganas de volver a abrir el mismo libro.",
-};
-
-export const storyPillars = [
-  {
-    title: "Libros con sentido",
-    description: "Por edad, por lo que les gusta y por el momento en el que están.",
-  },
-  {
-    title: "Te orientamos con gusto",
-    description: "Escríbenos y te decimos cuál probar, sin venderte lo primero que vemos.",
-  },
-  {
-    title: "Talleres y actividades",
-    description: "Creatividad, lectura y momentos en familia — no todo es sobre libros, y está bien.",
-  },
-  {
-    title: "Para que no se quede en uno",
-    description: "Recursos e ideas para seguir leyendo después del primer libro.",
-  },
-];
 
 export const painPoints = [
   {
-    title: "Hay demasiados libros",
-    description: "Quieres que lean, pero en la librería o en línea no sabes cuál sí vale la pena.",
+    title: "Demasiadas opciones",
+    description:
+      "Entre novedades, edades y temas, es fácil terminar con veinte pestañas abiertas.",
   },
   {
-    title: "Falta quien te guíe",
-    description: "Necesitas una recomendación honesta, de alguien que conozca los libros de verdad.",
+    title: "La edad no lo dice todo",
+    description: "Dos niños de cinco años pueden buscar historias completamente distintas.",
   },
   {
-    title: "El entusiasmo se apaga",
-    description: "Compras uno bonito y a las dos semanas ya nadie lo volvió a abrir.",
+    title: "Un libro bonito no siempre engancha",
+    description:
+      "Lo importante es que toque algo que hoy les interesa, les preocupa o les causa risa.",
+  },
+];
+
+export const valueProps = [
+  {
+    title: "Libros bien escogidos",
+    description: "Opciones organizadas por edad y por lo que hoy les gusta.",
+  },
+  {
+    title: "Una recomendación de verdad",
+    description: "Dos o tres sugerencias claras cuando no sabes cuál llevar.",
+  },
+  {
+    title: "Planes para compartir",
+    description: "Actividades que convierten una historia en conversación, juego o dibujo.",
+  },
+  {
+    title: "Ideas que caben en casa",
+    description: "Formas sencillas de volver al cuento sin preparar materiales ni dejar tarea.",
   },
 ];
 
 export const philosophySteps = [
   {
-    title: "Encuentra un libro que enganche",
-    description: "Tu hijo o hija descubre una historia que le prende la curiosidad.",
+    title: "Algo les llama",
+    description: "Una portada, un personaje o una pregunta les hace abrir el libro.",
   },
   {
-    title: "Lo lees con calma",
-    description: "Tú encuentras cómo acompañarlo, sin convertirlo en tarea.",
+    title: "Lo leen a su manera",
+    description: "De corrido, por partes, haciendo voces o deteniéndose en cada dibujo.",
   },
   {
-    title: "Sigue vivo en casa",
-    description: "El libro reaparece en plática, en juego o en la hora de dormir.",
+    title: "Aparece otra vez",
+    description: "El cuento vuelve en la plática, el juego o la hora de dormir.",
   },
 ];
 
 export const values = [
   {
-    title: "Cercanía",
-    description: "Te escuchamos: edad, intereses, si le cuesta o le encanta leer.",
+    title: "Lo que les gusta hoy",
+    description: "Dinosaurios, emociones, fútbol, monstruos o preguntas que no sueltan.",
   },
   {
-    title: "Intención",
-    description: "Cada libro está ahí por una razón, no porque esté de moda.",
+    title: "Su edad como pista",
+    description: "Sirve para empezar, pero no decide por sí sola.",
   },
   {
-    title: "Confianza",
-    description: "Te platicamos claro, como entre conocidas, sin rodeos.",
+    title: "Cero presión",
+    description: "Una recomendación debe darte claridad, no otra cosa que cumplir.",
   },
   {
-    title: "Curiosidad",
-    description: "Nos gusta que pregunten, opinen y se rían con las historias.",
+    title: "Preguntas bienvenidas",
+    description: "Los buenos cuentos dejan espacio para imaginar, opinar y no estar de acuerdo.",
   },
   {
-    title: "Conexión",
-    description: "La lectura une a tu familia y, cuando toca, a la escuela también.",
+    title: "Tiempo juntos",
+    description: "Diez minutos compartidos pueden valer más que una lectura perfecta.",
   },
   {
-    title: "Comunidad",
-    description: "Leer se disfruta más cuando se comparte con otras mamás y familias.",
+    title: "Algo para compartir",
+    description: "Una historia crece cuando alguien más se ríe, pregunta o la recomienda.",
   },
 ];
 
 export const workPhases = [
   {
     title: "Antes",
-    description: "Nos cuentas la edad de tus hijos, qué les gusta y qué buscas.",
+    description: "Comparte sus edades, lo que les gusta y si leen solos o contigo.",
   },
   {
-    title: "Durante",
-    description: "Leen, exploran el libro o viven la experiencia juntos.",
+    title: "Al elegir",
+    description: "Compara pocas opciones y lleva la que más se parezca a ellos.",
   },
   {
-    title: "Después",
-    description: "Te damos ideas para seguir en casa sin complicarte la vida.",
+    title: "En casa",
+    description: "Lean a su ritmo y sigan la conversación que nazca del cuento.",
   },
 ];
 
 export const serviceGroups = [
   {
-    title: "Para tu escuela",
-    description: "Ferias del libro, cuentacuentos y clubs de lectura en tu plantel.",
-    items: ["Ferias del libro", "Cuentacuentos", "Clubs de lectura"],
+    eyebrow: "Para escuelas",
+    title: "Libros del salón a la casa",
+    description:
+      "Ferias, cuentacuentos y encuentros para estudiantes, docentes y familias, con historias elegidas por edad e intereses.",
   },
   {
-    title: "Para docentes y mamás",
-    description: "Capacitación para maestras y escuela para padres, según lo que necesiten.",
-    items: ["Capacitación docente", "Escuela para padres"],
+    eyebrow: "Para empresas",
+    title: "Eventos para colaboradores y familias",
+    description:
+      "Libros y actividades para reunir a un equipo, celebrar una fecha o compartir un momento con sus familias.",
   },
   {
-    title: "Eventos a la medida",
-    description: "Armamos experiencias para escuelas, empresas o grupos.",
-    items: ["Eventos a la medida", "Eventos empresariales"],
+    eyebrow: "Para grupos y comunidades",
+    title: "Libros por volumen y eventos a la medida",
+    description:
+      "Ajusta la selección, el formato y la duración al número de personas y a lo que quieres lograr.",
   },
 ];
 
 export const schoolModalities = [
   {
     title: "Un día para contar",
-    description: "Una jornada con familias, cuentos y libros. Ideal para empezar.",
-    steps: ["Escuela para padres", "Cuentacuentos", "Feria del libro"],
+    description:
+      "Una jornada para reunir a estudiantes, colaboradores, familias o invitados alrededor de las historias.",
+    components: "Cuentacuentos · Feria del libro · Encuentro para familias o equipos",
   },
   {
-    title: "Contamos todo el año",
-    description: "Cinco momentos en el ciclo escolar para que la lectura no se quede en un solo día.",
-    steps: [
-      "Escuela para padres 1",
-      "Feria del libro",
-      "Escuela para padres 2",
-      "Cuentos en la escuela",
-      "Feria del libro",
-    ],
+    title: "Historias durante todo el año",
+    description:
+      "Varios encuentros para que el interés no termine cuando se guarda la última silla.",
+    components: "Ferias del libro · Cuentacuentos · Encuentros · Selecciones de libros",
   },
 ];
 
 export const whyKtvt = [
   {
-    title: "Selección con cuidado",
-    description: "Libros infantiles por edad e intereses, no solo los más vendidos.",
+    title: "Libros que vienen al caso",
+    description:
+      "Los títulos se proponen según edades, intereses y objetivos, no solo por popularidad.",
   },
   {
-    title: "Te orientamos por WhatsApp",
-    description: "Cuéntanos de tus hijos y te recomendamos con gusto.",
+    title: "Ideas concretas para compartir",
+    description:
+      "Docentes, familias, coordinadores o equipos se llevan formas sencillas de volver a los libros.",
   },
   {
-    title: "Casa y escuela conectadas",
-    description: "Lo que leen en el aula puede seguir platicándose en casa.",
+    title: "Algo que sale del evento",
+    description: "La conversación puede continuar en casa, en el salón o entre compañeros.",
   },
   {
     title: "Sin sermones",
-    description: "La lectura se disfruta, no se impone.",
+    description: "Las historias abren espacio para disfrutar, preguntar y compartir.",
   },
   {
     title: "A la medida",
-    description: "Cada escuela o grupo es distinto; adaptamos la propuesta.",
+    description: "El plan puede ajustarse a participantes, edades, calendario y objetivo.",
   },
   {
-    title: "Para que dure",
-    description: "Libros y recursos después del evento, no solo un día bonito.",
+    title: "Algo que sigue",
+    description: "Los libros y las ideas posteriores mantienen viva la conversación.",
   },
 ];
 
 export const impactPoints = [
-  "Encuentras libros infantiles que sí le van a tus hijos.",
-  "Sales con ideas concretas para leer en casa.",
-  "Se abren pláticas alrededor de las historias.",
-  "El aula y la familia hablan del mismo libro.",
-  "El interés no se apaga cuando termina la actividad.",
+  "Las familias encuentran opciones adecuadas para sus hijos.",
+  "Docentes, colaboradores y cuidadores se llevan ideas concretas para compartir la lectura.",
+  "Las historias abren nuevas conversaciones en casa, en el salón o en el equipo.",
+  "Lo que empieza durante el evento vuelve a aparecer después.",
+  "El interés puede mantenerse después de la actividad.",
 ];
 
 export const socialCommitment =
-  "Creemos que leer no debería ser un lujo. Por cada 10 eventos escolares pagados, llevamos 1 función gratuita a zonas vulnerables. También impulsamos donaciones, eventos a beneficio y libros de segunda mano en buen estado.";
+  "Por cada 10 eventos escolares pagados, se ofrece una función gratuita en una zona vulnerable. También se impulsan donaciones, eventos a beneficio y la circulación de libros de segunda mano en buen estado.";
 
 export const trustHighlights = [
-  "Cada libro elegido a mano",
-  "Recomendaciones por WhatsApp",
-  "Para leer sin presión",
-  "Compra fácil, sin cuenta",
+  "Libros seleccionados por edad",
+  "Recomendaciones personalizadas",
+  "Compra Segura",
+  "Envío a todo México",
 ];

@@ -4,73 +4,85 @@ import { notFound } from "next/navigation";
 const policies = {
   compras: {
     title: "Políticas de compra",
-    description: "Condiciones aplicables a pedidos realizados en KTVT.",
+    description:
+      "Consulta cómo se reciben los pedidos, cuándo comienza su preparación y cómo se validan precios, inventario y pagos.",
+    eyebrow: "Información para tu compra",
+    intro: "Aquí puedes consultar las condiciones aplicables a tus pedidos.",
     sections: [
       [
         "Pedidos",
-        "Los pedidos se consideran recibidos al generarse un folio. La preparación comienza cuando el pago aparece como confirmado, salvo transferencia, que permanece pendiente hasta su validación.",
+        "Tu pedido se considera recibido cuando se genera un folio. La preparación comienza después de confirmar el pago. Si eliges transferencia, el pedido permanece pendiente hasta validar el comprobante.",
       ],
       [
         "Precios e inventario",
-        "Los precios se muestran en pesos mexicanos. El inventario se valida nuevamente al crear el pedido; si existe una discrepancia, te contactaremos para ofrecer una alternativa o cancelar.",
+        "Los precios se muestran en pesos mexicanos. La disponibilidad se valida nuevamente al crear el pedido. Si existe una diferencia, recibirás opciones para sustituir el producto o cancelar.",
       ],
       [
         "Pagos",
-        "Las pasarelas procesan la información financiera en sus propios entornos. KTVT no almacena números completos de tarjeta.",
+        "La información financiera se procesa en el entorno de cada proveedor de pago. Este sitio no almacena números completos de tarjeta.",
       ],
     ],
   },
   "cambios-devoluciones": {
     title: "Cambios y devoluciones",
-    description: "Criterios provisionales para solicitar ayuda después de recibir un pedido.",
+    description:
+      "Consulta los requisitos para reportar un producto dañado o incorrecto, solicitar un cambio o recibir un reembolso.",
+    eyebrow: "Ayuda después de tu compra",
+    intro: "Consulta los criterios para solicitar ayuda después de recibir tu pedido.",
     sections: [
       [
         "Producto dañado o incorrecto",
-        "Escríbenos dentro de los cinco días naturales posteriores a la entrega e incluye el folio y fotografías del empaque y producto. Revisaremos el caso antes de indicar recolección o reposición.",
+        "Inicia tu solicitud dentro de los cinco días naturales posteriores a la entrega. Incluye el folio y fotografías del empaque y del producto. Recibirás indicaciones después de revisar el caso.",
       ],
       [
         "Cambio de opinión",
-        "Los libros deben conservarse sin uso y en las mismas condiciones en que fueron recibidos. El costo de regreso podrá corresponder al cliente.",
+        "El libro debe conservarse sin uso y en las mismas condiciones en que fue recibido. El costo de devolución puede corresponder a la persona que realizó la compra.",
       ],
       [
         "Reembolsos",
-        "Cuando proceda, se realizará al método original. Los tiempos de acreditación dependen de cada proveedor de pago.",
+        "Cuando el reembolso proceda, se enviará al método de pago original. El tiempo de acreditación depende de cada proveedor.",
       ],
     ],
   },
   privacidad: {
     title: "Aviso de privacidad",
-    description: "Cómo se utilizarán los datos proporcionados a KTVT.",
+    description:
+      "Consulta qué datos se solicitan, para qué se utilizan y cómo ejercer tus derechos de acceso, rectificación, cancelación u oposición.",
+    eyebrow: "Tus datos y tus decisiones",
+    intro: "Aquí puedes consultar qué datos se solicitan, para qué se utilizan y cómo ejercer tus derechos.",
     sections: [
       [
         "Datos recopilados",
-        "Recopilamos datos de contacto, entrega, pedido y formularios. Las pasarelas de pago procesan directamente los datos financieros.",
+        "Al comprar o enviar un formulario, puedes proporcionar datos de contacto, entrega, pedido y comunicación. Los datos financieros se procesan directamente con el proveedor de pago elegido.",
       ],
       [
         "Finalidades",
-        "Usamos la información para procesar pedidos, responder mensajes, gestionar registros y, cuando exista consentimiento, enviar contenidos y novedades.",
+        "Tus datos se utilizan para procesar pedidos, responder mensajes, gestionar registros y, solo cuando das tu consentimiento, enviar contenidos y novedades.",
       ],
       [
         "Derechos y contacto",
-        "Podrás solicitar acceso, corrección, cancelación u oposición escribiendo al correo de contacto que se confirme antes del lanzamiento.",
+        "Puedes solicitar acceso, rectificación, cancelación u oposición mediante el correo de privacidad indicado en la versión vigente de este aviso.",
       ],
     ],
   },
   terminos: {
     title: "Términos de uso",
-    description: "Reglas generales para utilizar este sitio.",
+    description:
+      "Consulta las reglas para utilizar el sitio, el alcance de sus contenidos y la forma en que pueden actualizarse estos términos.",
+    eyebrow: "Uso claro y responsable",
+    intro: "Consulta las reglas generales para utilizar este sitio.",
     sections: [
       [
         "Uso del sitio",
-        "El contenido se ofrece con fines informativos y comerciales. No se permite utilizar el sitio para actividades ilícitas o que afecten su funcionamiento.",
+        "El contenido tiene fines informativos y comerciales. No puedes utilizar el sitio para actividades ilícitas ni para acciones que afecten su funcionamiento o la experiencia de otras personas.",
       ],
       [
         "Contenido",
-        "Los textos, selecciones y materiales de KTVT no pueden reproducirse comercialmente sin autorización. Las portadas y marcas de editoriales pertenecen a sus titulares.",
+        "Los textos, selecciones y materiales propios no pueden reproducirse con fines comerciales sin autorización. Las portadas, marcas y contenidos de editoriales pertenecen a sus titulares.",
       ],
       [
-        "Cambios",
-        "Estos términos podrán actualizarse cuando cambien los servicios, proveedores o requisitos legales. Se mostrará la fecha de la versión vigente.",
+        "Actualizaciones",
+        "Estos términos pueden cambiar cuando se actualicen los servicios, los proveedores o los requisitos legales. La fecha de la versión vigente debe aparecer al inicio de la página.",
       ],
     ],
   },
@@ -95,18 +107,17 @@ export default async function PolicyPage({ params }: Props) {
       <header className="page-hero">
         <div className="container">
           <div className="narrow stack">
-            <p className="eyebrow">Información y confianza</p>
+            <p className="eyebrow">{policy.eyebrow}</p>
             <h1>{policy.title}</h1>
-            <p className="lede">{policy.description}</p>
-            <p className="small muted">Versión provisional · 17 de julio de 2026</p>
+            <p className="lede">{policy.intro}</p>
+            <p className="small muted">
+              Versión provisional · Requiere revisión y aprobación legal antes del lanzamiento.
+            </p>
           </div>
         </div>
       </header>
       <div className="container section">
         <div className="narrow prose">
-          <div className="config-banner">
-            Este texto operativo debe ser revisado y aprobado por asesoría legal antes del lanzamiento.
-          </div>
           {policy.sections.map(([title, content]) => (
             <section key={title}>
               <h2>{title}</h2>

@@ -47,7 +47,6 @@ export function DataForm({
   if (status === "success") {
     return (
       <div className="notice success" role="status">
-        <strong>¡Listo!</strong>
         <span>{successMessage}</span>
       </div>
     );
@@ -93,7 +92,7 @@ export function DataForm({
       </button>
       {status === "error" && (
         <p className="form-error" role="alert">
-          No pudimos enviar tus datos. Intenta de nuevo o escríbenos por WhatsApp.
+          Algo se atoró. Intenta otra vez o continúa por WhatsApp.
         </p>
       )}
     </form>
@@ -105,9 +104,17 @@ export function NewsletterForm() {
     <DataForm
       compact
       kind="newsletter"
-      fields={[{ name: "email", label: "Tu correo", type: "email", required: true }]}
-      submitLabel="Quiero la guía"
-      successMessage="Te enviaremos la guía al correo que registraste."
+      fields={[
+        {
+          name: "email",
+          label: "Tu correo",
+          type: "email",
+          required: true,
+          placeholder: "Tu correo",
+        },
+      ]}
+      submitLabel="Recibir la guía"
+      successMessage="Recibirás la guía en el correo que indicaste."
     />
   );
 }

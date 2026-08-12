@@ -109,7 +109,7 @@ export default async function ProductPage({ params }: Props) {
             </div>
             <div className="trust-strip">
               <span className="cluster">
-                <ShieldCheck size={18} /> Checkout seguro
+                <ShieldCheck size={18} /> Compra sin crear cuenta
               </span>
               <span className="cluster">
                 <Truck size={18} /> Entrega por confirmar
@@ -120,8 +120,7 @@ export default async function ProductPage({ params }: Props) {
               <p>{product.description}</p>
             </div>
             <aside className="recommendation stack tight">
-              <p className="eyebrow">Por qué lo recomendamos</p>
-              <h3>La mirada KTVT</h3>
+              <p className="eyebrow">Por qué puede funcionar en casa</p>
               <p>{product.recommendation}</p>
             </aside>
           </div>

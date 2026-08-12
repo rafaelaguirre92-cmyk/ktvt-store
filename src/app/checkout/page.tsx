@@ -7,9 +7,9 @@ import { CartLines, useCart } from "@/components/cart";
 import { formatCurrency } from "@/lib/catalog";
 
 const providers = [
-  { value: "stripe", title: "Tarjeta con Stripe", note: "Entorno sandbox" },
-  { value: "mercadopago", title: "Mercado Pago", note: "Checkout de prueba" },
-  { value: "paypal", title: "PayPal", note: "Cuenta sandbox" },
+  { value: "stripe", title: "Tarjeta con Stripe", note: "Pago con tarjeta de crédito o débito" },
+  { value: "mercadopago", title: "Mercado Pago", note: "Tarjeta, transferencia o efectivo según disponibilidad" },
+  { value: "paypal", title: "PayPal", note: "Pago con cuenta PayPal o tarjeta" },
   {
     value: "transfer",
     title: "Transferencia coordinada por WhatsApp",
@@ -79,7 +79,7 @@ export default function CheckoutPage() {
       clear();
       window.location.assign(payment.checkoutUrl);
     } catch (reason) {
-      setError(reason instanceof Error ? reason.message : "No se pudo completar el checkout");
+      setError(reason instanceof Error ? reason.message : "Algo se atoró. Intenta otra vez o continúa por WhatsApp.");
       setStatus("idle");
     }
   }
@@ -88,10 +88,12 @@ export default function CheckoutPage() {
     return (
       <section className="section">
         <div className="container empty-state">
-          <h1>Tu carrito está vacío</h1>
-          <p className="muted">Agrega al menos un libro para continuar al checkout.</p>
+          <h1>Todavía no hay libros por aquí</h1>
+          <p className="muted">
+            Explora por edad o empieza por eso que hoy no dejan de preguntar.
+          </p>
           <Link className="button primary" href="/tienda">
-            Ver los libros
+            Explorar libros
           </Link>
         </div>
       </section>
@@ -102,9 +104,9 @@ export default function CheckoutPage() {
     <section className="section">
       <div className="container">
         <div className="stack mb-4">
-          <p className="eyebrow">Compra como invitado</p>
-          <h1>Checkout</h1>
-          <p className="muted">No necesitas crear una cuenta.</p>
+          <p className="eyebrow">Sin cuentas ni contraseñas</p>
+          <h1>Completa tu pedido</h1>
+          <p className="muted">Solo faltan tus datos de contacto, entrega y pago.</p>
         </div>
         <form className="checkout-grid" onSubmit={submit}>
           <div className="stack">
@@ -137,7 +139,7 @@ export default function CheckoutPage() {
                   <input name="address2" autoComplete="address-line2" />
                 </label>
                 <label>
-                  Ciudad o alcaldía
+                  Ciudad o municipio
                   <input name="city" required autoComplete="address-level2" />
                 </label>
                 <label>
@@ -150,8 +152,8 @@ export default function CheckoutPage() {
                 </label>
               </div>
               <div className="config-banner small">
-                Entrega por confirmar: validaremos cobertura, fecha y costo contigo antes de preparar
-                el pedido. El cargo actual de envío es $0.
+                Antes de preparar el pedido recibirás la cobertura, la fecha y el costo de entrega
+                para confirmarlos. El total mostrado todavía no incluye ese costo.
               </div>
             </section>
             <section className="card stack">
@@ -173,12 +175,12 @@ export default function CheckoutPage() {
                 ))}
               </div>
               <label>
-                Nota para el pedido (opcional)
+                Nota para tu pedido (opcional)
                 <textarea name="notes" rows={3} />
               </label>
               <label className="cluster">
                 <input className="w-auto" type="checkbox" required /> Acepto las políticas de
-                compra y privacidad.
+                compra y el aviso de privacidad.
               </label>
             </section>
           </div>
@@ -190,15 +192,15 @@ export default function CheckoutPage() {
               <strong>{formatCurrency(subtotal)}</strong>
             </div>
             <div className="cluster spread">
-              <span>Entrega provisional</span>
+              <span>Entrega por confirmar</span>
               <span>$0</span>
             </div>
             <div className="cluster spread">
-              <strong>Total provisional</strong>
+              <strong>Total antes de entrega</strong>
               <strong>{formatCurrency(subtotal)}</strong>
             </div>
             <button className="button primary full" type="submit" disabled={status === "sending"}>
-              {status === "sending" ? "Creando pedido…" : "Crear pedido y pagar"}
+              {status === "sending" ? "Confirmando…" : "Confirmar pedido y pagar"}
             </button>
             {error && (
               <p className="form-error small" role="alert">
@@ -206,7 +208,7 @@ export default function CheckoutPage() {
               </p>
             )}
             <p className="muted small">
-              Los montos e inventario se verifican en el servidor antes de crear el pedido.
+              El total y la disponibilidad se revisan antes de confirmar el pedido.
             </p>
           </aside>
         </form>

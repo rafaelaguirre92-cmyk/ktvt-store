@@ -16,6 +16,8 @@ export function ShopSort({ total }: { total: number }) {
   const router = useRouter();
   const params = useSearchParams();
   const current = (params.get("orden") as ShopSortOption) || "destacados";
+  const countLabel =
+    total === 1 ? "1 libro encontrado" : `${total} libros encontrados`;
 
   function updateSort(value: string) {
     const next = new URLSearchParams(params.toString());
@@ -27,7 +29,7 @@ export function ShopSort({ total }: { total: number }) {
   return (
     <div className="shop-toolbar">
       <div className="cluster spread baseline">
-        <p className="muted">{total} libros encontrados</p>
+        <p className="muted">{countLabel}</p>
         <label className="shop-sort">
           Ordenar por
           <select value={current} onChange={(event) => updateSort(event.target.value)}>
@@ -39,7 +41,6 @@ export function ShopSort({ total }: { total: number }) {
           </select>
         </label>
       </div>
-      <p className="small muted">Catálogo demo; productos reales pendientes de carga.</p>
     </div>
   );
 }

@@ -5,20 +5,20 @@ import { Footer, Header, WhatsAppButton } from "@/components/site-shell";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://www.ktvt.mx"),
   title: {
-    default: "Libros Infantiles · KTVT",
-    template: "%s · KTVT",
+    default: "Libros infantiles por edad | Historias para compartir",
+    template: "%s",
   },
   description:
-    "Selección curada para tus hijos, recomendaciones por edad y orientación por WhatsApp. Talleres en familia y propuestas para escuelas.",
+    "Encuentra libros infantiles que vayan con su edad y con lo que hoy les gusta. Elige más fácil y pide una recomendación para leer en familia.",
   openGraph: {
     type: "website",
     locale: "es_MX",
     siteName: "KTVT",
-    title: "Libros Infantiles · KTVT",
+    title: "Historias para leer, reír y volver a abrir",
     description:
-      "Libros infantiles que tus hijos sí van a querer leer. Selección pensada para mamás, con recomendaciones personalizadas.",
+      "Encuentra libros que vayan con su edad, sus intereses y la forma en que disfrutan leer.",
   },
   robots: { index: true, follow: true },
   verification: {

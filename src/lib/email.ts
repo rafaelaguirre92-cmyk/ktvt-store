@@ -23,7 +23,7 @@ export async function sendOrderReceivedEmail(input: {
         <div style="font-family:Arial,sans-serif;max-width:560px;margin:auto;color:#202020">
           <h1>Gracias, ${escapeHtml(input.name)}</h1>
           <p>Recibimos el pedido <strong>${escapeHtml(input.orderNumber)}</strong>.</p>
-          <p>Total provisional: <strong>${new Intl.NumberFormat("es-MX", {
+          <p>Total antes de entrega: <strong>${new Intl.NumberFormat("es-MX", {
             style: "currency",
             currency: "MXN",
           }).format(input.totalCents / 100)}</strong></p>

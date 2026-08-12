@@ -14,7 +14,7 @@ config.autoAddCss = false;
 
 const navigation = [
   { href: "/", label: "Inicio" },
-  { href: "/nosotros", label: "Nosotros" },
+  { href: "/nosotros", label: "Tu guía" },
   { href: "/tienda", label: "Tienda" },
   { href: "/eventos", label: "Eventos" },
   { href: "/blog", label: "Blog" },
@@ -31,7 +31,7 @@ export function Header() {
         Saltar al contenido
       </a>
       <div className="container header-inner">
-        <Link className="wordmark" href="/" aria-label="KTVT, inicio">
+        <Link className="wordmark" href="/" aria-label="Inicio">
           KTVT <span>logo pendiente</span>
         </Link>
         <nav className="desktop-nav" aria-label="Navegación principal">
@@ -76,7 +76,7 @@ export function Footer() {
       <div className="container footer-grid">
         <div className="stack">
           <div className="wordmark light">KTVT</div>
-          <p>Libros, talleres y actividades en familia — sin complicarte la vida.</p>
+          <p>Historias para leer juntos, reírse y seguir platicando.</p>
           <div className="social-links">
             <a
               href="https://instagram.com"
@@ -112,7 +112,7 @@ export function Footer() {
           <Link href="/organizaciones">Organizaciones</Link>
         </div>
         <div className="stack tight">
-          <strong>Ayuda y confianza</strong>
+          <strong>Información útil</strong>
           <Link href="/faq">Preguntas frecuentes</Link>
           <Link href="/politicas/compras">Políticas de compra</Link>
           <Link href="/politicas/cambios-devoluciones">Cambios y devoluciones</Link>
@@ -123,7 +123,6 @@ export function Footer() {
       </div>
       <div className="container footer-bottom">
         <span>© {new Date().getFullYear()} KTVT</span>
-        <span>Wireframe funcional · Identidad visual pendiente</span>
       </div>
     </footer>
   );
@@ -132,7 +131,8 @@ export function Footer() {
 export function WhatsAppButton() {
   const pathname = usePathname();
   const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "5210000000000";
-  let message = "Hola, necesito ayuda para elegir un libro para mis hijos.";
+  let message =
+    "Hola. Busco un libro para mis hijos. Sus edades son [EDADES] y les interesa [INTERESES].";
 
   if (pathname.startsWith("/producto/")) {
     const name = decodeURIComponent(pathname.split("/").at(-1) || "este libro").replaceAll("-", " ");
@@ -140,21 +140,21 @@ export function WhatsAppButton() {
   } else if (pathname === "/organizaciones") {
     message = "Hola, quiero información para mi organización.";
   } else if (pathname.startsWith("/eventos")) {
-    message = "Hola, quiero información sobre los talleres de KTVT.";
+    message = "Hola, quiero información sobre los talleres.";
   } else if (pathname === "/checkout") {
     message = "Hola, necesito ayuda con mi pedido.";
   }
 
   return (
     <a
-      aria-label="Conversar por WhatsApp"
+      aria-label="Pedir una recomendación por WhatsApp"
       className="whatsapp"
       href={`https://wa.me/${number}?text=${encodeURIComponent(message)}`}
       rel="noreferrer"
       target="_blank"
     >
       <MessageCircle size={22} />
-      <span>¿Te ayudamos?</span>
+      <span>Pide una recomendación</span>
     </a>
   );
 }

@@ -3,41 +3,47 @@ import Link from "next/link";
 import { PageHero } from "@/components/content";
 
 export const metadata: Metadata = {
-  title: "Preguntas frecuentes",
-  description: "Respuestas sobre pedidos, pagos, envíos, recomendaciones y talleres KTVT.",
+  title: "Dudas sobre libros, compras y entregas",
+  description:
+    "Encuentra respuestas sencillas sobre recomendaciones, pagos, entregas, compra sin cuenta, cambios y actividades.",
 };
 
 const questions = [
   {
     question: "¿Los libros son físicos?",
-    answer: "Sí. El catálogo de esta versión está compuesto por libros físicos.",
+    answer: "Sí. Todos los títulos de la tienda son libros físicos.",
   },
   {
     question: "¿Cómo elijo un libro según la edad?",
     answer:
-      "Puedes usar el filtro de edad como orientación. Si nos cuentas intereses y momento lector por WhatsApp, te ayudamos a comparar opciones.",
+      "Empieza por la edad y fíjate también en lo que le gusta, cuánto tiempo suele escuchar y si prefiere mirar, escuchar o leer solo. Si dudas entre varias opciones, pide una recomendación por WhatsApp.",
+  },
+  {
+    question: "¿Puedo recibir una recomendación personal?",
+    answer:
+      "Sí. Comparte sus edades, sus temas favoritos y si leen solos o contigo. Recibirás pocas opciones para comparar antes de comprar.",
   },
   {
     question: "¿Qué formas de pago aceptan?",
     answer:
-      "El checkout está preparado para Stripe, Mercado Pago, PayPal y transferencia coordinada por WhatsApp. Durante validación, las pasarelas funcionan únicamente en sandbox.",
+      "Puedes pagar con los métodos que aparezcan disponibles al completar tu pedido.",
   },
   {
-    question: "¿Cómo funcionan los envíos?",
+    question: "¿Cómo funcionan las entregas?",
     answer:
-      "La logística final depende de un tercero y sigue en definición. Antes de preparar el pedido confirmaremos cobertura, fecha y costo. El sistema queda preparado para entrega local y envío nacional.",
+      "Antes de preparar tu pedido se confirman la cobertura, la fecha y el costo. Así puedes aprobar la opción disponible para tu ubicación.",
   },
   {
     question: "¿Necesito crear una cuenta para comprar?",
-    answer: "No. Puedes completar la compra como invitado con tus datos de contacto y entrega.",
+    answer: "No. Puedes completar tu compra como invitada con tus datos de contacto y entrega.",
   },
   {
     question: "¿Puedo cambiar o devolver un libro?",
     answer:
-      "Los criterios provisionales están en la página de cambios y devoluciones. Se revisarán legalmente antes del lanzamiento.",
+      "Consulta los criterios vigentes en la página de cambios y devoluciones. Si recibiste un producto dañado o incorrecto, inicia tu solicitud dentro del plazo indicado.",
   },
   {
-    question: "¿Qué ocurre si un taller todavía no tiene fecha?",
+    question: "¿Qué ocurre si una actividad todavía no tiene fecha?",
     answer:
       "Puedes registrar tu interés. Conservaremos tus datos únicamente para avisarte cuando se publique la fecha.",
   },
@@ -48,8 +54,8 @@ export default function FaqPage() {
     <>
       <PageHero
         eyebrow="Ayuda"
-        title="Preguntas frecuentes"
-        description="Información práctica para comprar, recibir tu pedido y participar en talleres."
+        title="Respuestas rápidas para elegir y comprar"
+        description="Lo más importante sobre libros, pagos, entregas y actividades, sin vueltas."
       />
       <section className="section">
         <div className="container">
@@ -65,7 +71,7 @@ export default function FaqPage() {
             <div className="lead-box mt-6">
               <div className="stack tight">
                 <h2>¿Tu pregunta no está aquí?</h2>
-                <p className="muted">Cuéntanos y te responderemos en 1 a 2 días hábiles.</p>
+                <p className="muted">Manda tu duda y recibirás respuesta en 1 a 2 días hábiles.</p>
               </div>
               <Link className="button primary" href="/contacto">
                 Ir a contacto

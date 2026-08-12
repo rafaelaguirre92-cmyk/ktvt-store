@@ -7,6 +7,23 @@ import { formatCurrency } from "@/lib/catalog";
 export default function CartPage() {
   const { lines, subtotal } = useCart();
 
+  if (!lines.length) {
+    return (
+      <section className="section">
+        <div className="container empty-state">
+          <p className="eyebrow">Tu selección</p>
+          <h1>Todavía no hay libros por aquí</h1>
+          <p className="muted">
+            Explora por edad o empieza por eso que hoy no dejan de preguntar.
+          </p>
+          <Link className="button primary" href="/tienda">
+            Explorar libros
+          </Link>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="section">
       <div className="container">
@@ -16,7 +33,7 @@ export default function CartPage() {
             <h1>Carrito</h1>
           </div>
           <Link className="text-link" href="/tienda">
-            Seguir explorando
+            Seguir viendo libros
           </Link>
         </div>
         <div className="checkout-grid">
@@ -31,18 +48,13 @@ export default function CartPage() {
             </div>
             <div className="cluster spread">
               <span>Entrega</span>
-              <span>Por confirmar</span>
+              <span>Entrega por confirmar</span>
             </div>
             <p className="small muted">
-              La logística final está en definición. Confirmaremos cobertura, fecha y costo antes de
-              preparar tu pedido.
+              La cobertura, la fecha y el costo se confirman antes de preparar tu pedido.
             </p>
-            <Link
-              aria-disabled={!lines.length}
-              className={`button primary full ${!lines.length ? "disabled" : ""}`}
-              href={lines.length ? "/checkout" : "/tienda"}
-            >
-              {lines.length ? "Continuar al checkout" : "Explorar libros"}
+            <Link className="button primary full" href="/checkout">
+              Continuar al pago
             </Link>
           </aside>
         </div>

@@ -38,15 +38,15 @@ export function Analytics() {
       {consent === null && (
         <aside className="cookie-banner" aria-label="Preferencias de analítica">
           <div>
-            <strong>Analítica con tu permiso</strong>
+            <strong>Analítica: tú eliges</strong>
             <p className="small muted">
-              Usamos medición opcional para entender qué contenidos ayudan. El sitio y el checkout
-              funcionan aunque la rechaces.
+              Sirve para saber qué contenidos te resultan útiles. Puedes decir que no; la tienda
+              funciona igual.
             </p>
           </div>
           <div className="cluster">
             <button className="button primary" onClick={() => choose("accepted")}>
-              Aceptar
+              Permitir
             </button>
             <button className="button secondary" onClick={() => choose("rejected")}>
               Rechazar

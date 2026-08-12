@@ -7,12 +7,21 @@ import { ages } from "@/lib/catalog";
 import { homeHero, homeSeo } from "@/lib/institutional";
 import { getArticles, getEvents, getProducts } from "@/lib/repository";
 
+const ageEyebrows: Record<string, string> = {
+  "0–2 años": "Mis primeros pasos",
+  "3–5 años": "Aprendiendo a leer",
+  "6–8 años": "Leo yo solito",
+  "9–12 años": "Elijo qué leer",
+  "Para toda la familia": "Para toda la familia",
+};
+
 export const metadata: Metadata = {
   title: homeSeo.title,
   description: homeSeo.description,
+  alternates: { canonical: homeSeo.canonical },
   openGraph: {
-    title: `${homeSeo.title} · KTVT`,
-    description: homeSeo.description,
+    title: homeSeo.openGraphTitle,
+    description: homeSeo.openGraphDescription,
   },
 };
 
@@ -24,6 +33,8 @@ export default async function Home() {
   ]);
 
   const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "5210000000000";
+  const whatsappMessage =
+    "Hola. Busco un libro para mis hijos. Sus edades son [EDADES] y les interesa [INTERESES].";
 
   return (
     <>
@@ -33,10 +44,10 @@ export default async function Home() {
           <p className="lede muted">{homeHero.description}</p>
           <div className="cluster lg">
             <Link className="button primary" href="/tienda">
-              Ver la tienda <ArrowRight size={17} />
+              Explorar libros <ArrowRight size={17} />
             </Link>
             <Link className="text-link" href="/organizaciones">
-              ¿Eres maestra o Colegio?
+              Para organizaciones
             </Link>
           </div>
         </div>
@@ -54,16 +65,16 @@ export default async function Home() {
       <section className="section">
         <div className="container">
           <SectionHeading
-            eyebrow="Por edad"
-            title="Elige según la edad de tus hijos"
-            description="La edad ayuda a orientarte, pero lo que más pesa es lo que les gusta y cómo están leyendo hoy."
+            eyebrow="Empieza por aquí"
+            title="Libros infantiles para cada edad"
+            description="La edad es una buena pista. Lo que les gusta hoy termina de ayudarte a elegir."
           />
           <div className="grid-5">
             {ages.map((age) => (
               <Link className="age-card" href={`/tienda?edad=${encodeURIComponent(age)}`} key={age}>
-                <span className="eyebrow">Explorar por edad</span>
+                <span className="eyebrow">{ageEyebrows[age] ?? "Explorar por edad"}</span>
                 <div className="cluster spread">
-                  <h3>{age}</h3>
+                  {age !== "Para toda la familia" && <h3>{age}</h3>}
                   <ArrowRight size={18} />
                 </div>
               </Link>
@@ -75,9 +86,9 @@ export default async function Home() {
       <section className="section soft">
         <div className="container">
           <SectionHeading
-            eyebrow="Nuestra selección"
-            title="Los que volveríamos a regalar"
-            description="Cada uno lo revisamos antes de ponerlo aquí. Los que más funcionan con otras mamás también."
+            eyebrow="Elegidos con calma"
+            title="Historias que da gusto llevar a casa"
+            description="Libros leídos y escogidos porque despiertan preguntas, risas o ese “otra vez” que da gusto escuchar."
             action={{ href: "/tienda?recomendados=true", label: "Ver toda la selección" }}
           />
           <div className="product-grid">
@@ -111,14 +122,14 @@ export default async function Home() {
         <div className="container split-panel">
           <div className="stack">
             <Building2 size={32} />
-            <p className="eyebrow">¿Trabajas en una escuela?</p>
-            <h2>Llevamos libros y experiencias a tu plantel</h2>
+            <p className="eyebrow">Para escuelas, empresas y grupos</p>
+            <h2>Haz de los libros un punto de encuentro</h2>
             <p className="lede">
-              Ferias del libro, cuentacuentos, talleres para mamás y propuestas hechas a la medida
-              de tu escuela.
+              Ferias del libro, cuentacuentos y eventos para estudiantes, colaboradores, familias o
+              la comunidad que quieras reunir.
             </p>
             <Link className="button light" href="/organizaciones">
-              Ver opciones para escuelas
+              Ver opciones para organizaciones
             </Link>
           </div>
           <div className="wire-block">Imagen o caso de colaboración</div>
@@ -129,11 +140,17 @@ export default async function Home() {
         <div className="container lead-box">
           <div className="stack tight">
             <Gift size={28} />
-            <p className="eyebrow">Guía gratis</p>
-            <h2>7 ideas para leer en casa sin que se sienta como tarea</h2>
-            <p className="muted">Te la mandamos por correo. Empieza con algo pequeño esta semana.</p>
+            <p className="eyebrow">Guía gratuita</p>
+            <h2>7 ideas para leer en casa sin convertirlo en tarea</h2>
+            <p className="muted">Todas caben entre semana y no necesitan una rutina perfecta.</p>
           </div>
-          <NewsletterForm />
+          <div className="stack tight">
+            <NewsletterForm />
+            <p className="small muted">
+              Recibirás la guía y solo los contenidos que aceptes. Puedes darte de baja cuando
+              quieras.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -157,17 +174,18 @@ export default async function Home() {
           <div className="narrow stack">
             <MessageCircle size={30} />
             <p className="eyebrow">¿No sabes cuál elegir?</p>
-            <h2>Escríbenos: cuéntanos la edad de tu hijo o hija y te orientamos</h2>
+            <h2>Encuentra por dónde empezar</h2>
             <p className="lede muted">
-              Por WhatsApp, con gusto. Sin compromiso de compra, solo para ayudarte a acertar.
+              Comparte por WhatsApp sus edades, sus temas favoritos y si ya leen solos o contigo.
+              Recibirás pocas opciones, bien pensadas y sin compromiso de compra.
             </p>
             <div className="cluster">
               <Link className="button primary" href="/tienda">
-                Explorar la tienda
+                Explorar libros
               </Link>
               <a
                 className="button secondary"
-                href={`https://wa.me/${whatsapp}?text=${encodeURIComponent("Hola, necesito ayuda para elegir un libro para mis hijos.")}`}
+                href={`https://wa.me/${whatsapp}?text=${encodeURIComponent(whatsappMessage)}`}
               >
                 Pedir recomendación
               </a>

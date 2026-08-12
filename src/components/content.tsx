@@ -165,10 +165,11 @@ export function TrustStrip() {
   const items = trustHighlights;
 
   return (
-    <div className="trust-strip">
+    <div className="trust-strip trust-strip-highlights">
       {items.map((item) => (
-        <span className="cluster" key={item}>
-          <Check size={17} /> {item}
+        <span className="trust-strip-item" key={item}>
+          <Check size={17} aria-hidden="true" />
+          <span>{item}</span>
         </span>
       ))}
     </div>

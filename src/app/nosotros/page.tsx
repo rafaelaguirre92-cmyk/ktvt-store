@@ -1,37 +1,40 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { MessageCircle } from "lucide-react";
 import { PageHero, SectionHeading } from "@/components/content";
 import {
-  mission,
   painPoints,
   philosophySteps,
-  storyPillars,
   values,
-  vision,
+  valueProps,
   workPhases,
 } from "@/lib/institutional";
 
 export const metadata: Metadata = {
-  title: "Nosotros",
+  title: "Cómo elegir libros para tus hijos sin complicarte",
   description:
-    "Conoce KTVT: libros infantiles elegidos a mano y orientación para mamás que quieren leer en familia sin complicarse.",
+    "Empieza por su edad y por lo que hoy les da curiosidad. Compara menos, elige más fácil y encuentra historias para leer juntos.",
 };
 
 export default function AboutPage() {
+  const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "5210000000000";
+  const whatsappMessage =
+    "Hola. Busco un libro para mis hijos. Sus edades son [EDADES] y les interesa [INTERESES].";
+
   return (
     <>
       <PageHero
-        eyebrow="Quiénes somos"
-        title="Una selección de libros que sí tiene sentido"
-        description="Empezamos recomendando de mamá a mamá. Hoy seguimos igual: ayudarte a encontrar historias que a tus hijos les van a prender."
+        eyebrow="Tu guía para elegir"
+        title="Elegir un libro no tendría que sentirse como examen"
+        description="Empieza con su edad y con eso que hoy les da curiosidad. Si todavía dudas, pide dos o tres opciones que sí tengan sentido para ellos."
       />
       <section className="section">
         <div className="container">
           <div className="narrow stack mb-4">
-            <h2>Quieres que lean, pero elegir el libro correcto no siempre es fácil.</h2>
+            <h2>Hay muchísimos libros. Tu tiempo no es infinito.</h2>
             <p className="lede muted">
-              Lo sabemos porque lo vivimos. Por eso curamos cada libro con calma y te
-              orientamos cuando no sabes cuál probar.
+              No necesitas revisar un catálogo entero ni acertar a la primera. Una buena pista es
+              empezar por lo que les interesa hoy.
             </p>
           </div>
           <div className="grid-3">
@@ -47,45 +50,40 @@ export default function AboutPage() {
       <section className="section soft">
         <div className="container">
           <SectionHeading
-            eyebrow="Qué encuentras aquí"
-            title="Libros, guía y talleres en un solo lugar"
-            description="Todo pensado para que leer en casa se sienta posible, aunque andes con mil cosas."
+            eyebrow="Para elegir sin perderte"
+            title="Pocas opciones. Mejor pensadas."
+            description="La idea es que salgas con un libro que tenga sentido para tus hijos, no con una lista interminable."
           />
           <div className="grid-4">
-            {storyPillars.map((pillar) => (
-              <article className="feature-card stack" key={pillar.title}>
-                <h3>{pillar.title}</h3>
-                <p className="muted">{pillar.description}</p>
+            {valueProps.map((item) => (
+              <article className="feature-card stack" key={item.title}>
+                <h3>{item.title}</h3>
+                <p className="muted">{item.description}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
       <section className="section">
-        <div className="container grid-2">
-          <article className="feature-card stack">
-            <p className="eyebrow">{mission.title}</p>
-            <h2>{mission.statement}</h2>
-            <p className="muted">{mission.detail}</p>
-          </article>
-          <article className="feature-card stack">
-            <p className="eyebrow">{vision.title}</p>
-            <h2>{vision.statement}</h2>
-            <p className="muted">{vision.detail}</p>
-          </article>
+        <div className="container narrow stack">
+          <p className="eyebrow">Un libro puede aparecer en cualquier momento</p>
+          <h2>Que una historia se cuele en su día</h2>
+          <p className="lede muted">
+            En una pregunta durante la cena, una risa antes de dormir o un personaje que quieren
+            dibujar una y otra vez.
+          </p>
         </div>
       </section>
       <section className="section soft">
         <div className="container">
           <SectionHeading
-            eyebrow="Así se siente cuando funciona"
-            title="Un buen libro cambia la plática en casa"
-            description="No se trata de leer mucho ni rápido. Se trata de que quieran volver a abrirlo."
+            eyebrow="Una señal de que funcionó"
+            title="Cierran el libro y la historia sigue ahí"
+            description="No importa si leyeron cinco páginas o el cuento completo. Importa que algo les haya dado ganas de preguntar, jugar o volver mañana."
           />
           <div className="grid-3">
-            {philosophySteps.map((step, index) => (
+            {philosophySteps.map((step) => (
               <article className="feature-card stack" key={step.title}>
-                <p className="eyebrow">{index + 1}</p>
                 <h3>{step.title}</h3>
                 <p className="muted">{step.description}</p>
               </article>
@@ -96,14 +94,13 @@ export default function AboutPage() {
       <section className="section">
         <div className="container">
           <SectionHeading
-            eyebrow="En qué nos guiamos"
-            title="Seis cosas que no negociamos"
-            description="Así elegimos cada libro y cada experiencia."
+            eyebrow="Lo que sí importa al recomendar"
+            title="El libro tiene que tener sentido para ellos"
+            description="La edad es solo una pista. También cuentan sus preguntas, sus temas favoritos y cómo se llevan con la lectura."
           />
           <div className="grid-3">
-            {values.map((value, index) => (
+            {values.map((value) => (
               <article className="feature-card stack" key={value.title}>
-                <p className="eyebrow">{index + 1}</p>
                 <h3>{value.title}</h3>
                 <p className="muted">{value.description}</p>
               </article>
@@ -113,7 +110,7 @@ export default function AboutPage() {
       </section>
       <section className="section soft">
         <div className="container">
-          <SectionHeading eyebrow="Cómo te acompañamos" title="Antes, durante y después del libro" />
+          <SectionHeading eyebrow="Así de sencillo" title="Tres pasos. Sin complicarte." />
           <div className="grid-3">
             {workPhases.map((phase) => (
               <article className="feature-card stack" key={phase.title}>
@@ -127,15 +124,23 @@ export default function AboutPage() {
       <section className="section">
         <div className="container">
           <div className="narrow stack">
-            <p className="eyebrow">¿Le damos?</p>
-            <h2>Encuentra un libro para el momento que viven hoy</h2>
-            <p className="lede muted">Explora la tienda o escríbenos por WhatsApp. Te orientamos con gusto.</p>
+            <p className="eyebrow">Empieza por eso que hoy les encanta</p>
+            <h2>Encuentra una historia que se parezca a ellos</h2>
+            <p className="lede muted">
+              Explora por edad o pide dos o tres opciones por WhatsApp.
+            </p>
             <div className="cluster">
               <Link className="button primary" href="/tienda">
-                Ver la tienda
+                Explorar libros
               </Link>
+              <a
+                className="button secondary"
+                href={`https://wa.me/${whatsapp}?text=${encodeURIComponent(whatsappMessage)}`}
+              >
+                <MessageCircle size={18} /> Pedir recomendación
+              </a>
               <Link className="button secondary" href="/organizaciones">
-                ¿Vienes de una escuela?
+                Para organizaciones
               </Link>
             </div>
           </div>

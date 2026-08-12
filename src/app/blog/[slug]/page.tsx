@@ -65,7 +65,7 @@ export default async function ArticlePage({ params }: Props) {
             <div className="stack tight">
               <p className="eyebrow">Siguiente paso</p>
               <h2>Lleva una idea sencilla a casa</h2>
-              <p className="muted">Descarga gratis nuestra guía con siete prácticas posibles.</p>
+              <p className="muted">Descarga gratis la guía con siete ideas para leer en casa.</p>
             </div>
             <NewsletterForm />
           </aside>

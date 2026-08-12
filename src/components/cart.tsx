@@ -131,9 +131,11 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
                   <strong>Subtotal</strong>
                   <strong>{formatCurrency(value.subtotal)}</strong>
                 </div>
-                <p className="muted small">El envío se calcula en el checkout.</p>
+                <p className="muted small">
+                  El costo y la fecha de entrega se confirman antes de preparar tu pedido.
+                </p>
                 <Link className="button primary full" href="/checkout" onClick={() => setDrawerOpen(false)}>
-                  Continuar al checkout
+                  Continuar al pago
                 </Link>
                 <Link className="button secondary full" href="/carrito" onClick={() => setDrawerOpen(false)}>
                   Ver carrito
@@ -272,9 +274,11 @@ export function CartLines({ compact = false }: { compact?: boolean }) {
       <div className="empty-state">
         <ShoppingBag size={28} />
         <h3>Tu carrito está vacío</h3>
-        <p className="muted">Explora libros elegidos para disfrutar en familia.</p>
+        <p className="muted">
+          Explora historias para distintas edades y para eso que hoy les da tanta curiosidad.
+        </p>
         <Link className="button secondary" href="/tienda">
-          Ver los libros
+          Explorar libros
         </Link>
       </div>
     );

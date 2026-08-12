@@ -8,9 +8,9 @@ import { getProducts } from "@/lib/repository";
 import { sortProducts } from "@/lib/shop-sort";
 
 export const metadata: Metadata = {
-  title: "Tienda de Libros Infantiles",
+  title: "Tienda de libros infantiles por edad y gustos",
   description:
-    "Compra libros infantiles por edad, categoría e intereses. Selección curada para mamás, con recomendaciones por WhatsApp.",
+    "Explora libros por edad y por lo que hoy les gusta. Usa los filtros, compara opciones y pide una recomendación antes de elegir.",
 };
 
 type Search = {
@@ -36,13 +36,16 @@ export default async function ShopPage({ searchParams }: { searchParams: Promise
     return true;
   });
   const products = sortProducts(filtered, search.orden);
+  const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "5210000000000";
+  const whatsappMessage =
+    "Hola. Busco un libro para mis hijos. Sus edades son [EDADES] y les interesa [INTERESES].";
 
   return (
     <>
       <PageHero
         eyebrow="Tienda"
-        title="Encuentra un libro para tus hijos"
-        description="Filtra por edad o tema. Si dudas entre dos, escríbenos por WhatsApp y te orientamos con gusto."
+        title="Encuentra una historia que vaya con ellos"
+        description="Filtra por edad o tema. Si terminas con dos favoritos, pide una recomendación por WhatsApp."
       />
       <section className="section">
         <div className="container shop-layout">
@@ -50,7 +53,7 @@ export default async function ShopPage({ searchParams }: { searchParams: Promise
             <form className="filter-sidebar stack" method="get">
               <div className="stack tight">
                 <strong>Filtros</strong>
-                <p className="small muted">Refina el catálogo y aplica cuando quieras.</p>
+                <p className="small muted">Usa solo los que necesites.</p>
               </div>
               {search.orden && <input name="orden" type="hidden" value={search.orden} />}
               <label>
@@ -92,15 +95,15 @@ export default async function ShopPage({ searchParams }: { searchParams: Promise
                 Selección
                 <select name="recomendados" defaultValue={search.recomendados || ""}>
                   <option value="">Todo el catálogo</option>
-                  <option value="true">Recomendados</option>
+                  <option value="true">Selección especial</option>
                 </select>
               </label>
               <div className="stack tight">
                 <button className="button primary" type="submit">
-                  Aplicar filtros
+                  Ver resultados
                 </button>
                 <Link className="button secondary" href="/tienda">
-                  Limpiar
+                  Limpiar filtros
                 </Link>
               </div>
             </form>
@@ -119,11 +122,21 @@ export default async function ShopPage({ searchParams }: { searchParams: Promise
               </div>
             ) : (
               <div className="empty-state">
-                <h2>No encontramos libros con esos filtros</h2>
-                <p className="muted">Prueba otra combinación o pídenos una recomendación.</p>
-                <Link className="button secondary" href="/tienda">
-                  Ver todo el catálogo
-                </Link>
+                <h2>No hay libros con esos filtros</h2>
+                <p className="muted">
+                  Prueba otra edad o tema. Si quieres, pide dos o tres opciones por WhatsApp.
+                </p>
+                <div className="cluster">
+                  <Link className="button primary" href="/tienda">
+                    Limpiar filtros
+                  </Link>
+                  <a
+                    className="button secondary"
+                    href={`https://wa.me/${whatsapp}?text=${encodeURIComponent(whatsappMessage)}`}
+                  >
+                    Pedir recomendación
+                  </a>
+                </div>
               </div>
             )}
           </div>
