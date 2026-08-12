@@ -14,7 +14,7 @@ config.autoAddCss = false;
 
 const navigation = [
   { href: "/", label: "Inicio" },
-  { href: "/nosotros", label: "Tu guía" },
+  { href: "/nosotros", label: "Conócenos" },
   { href: "/tienda", label: "Tienda" },
   { href: "/eventos", label: "Eventos" },
   { href: "/blog", label: "Blog" },
